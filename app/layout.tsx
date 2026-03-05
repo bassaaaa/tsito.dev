@@ -4,6 +4,7 @@ import { ThemeProvider } from 'next-themes'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import './globals.css'
+import { SITE_NAME } from '../constant'
 
 const notoSansJP = Noto_Sans_JP({
   subsets: ['latin'],
@@ -12,7 +13,7 @@ const notoSansJP = Noto_Sans_JP({
 })
 
 export const metadata: Metadata = {
-  title: 'my-tech-blog',
+  title: SITE_NAME,
   description: '技術・学習・趣味について書くブログ',
 }
 

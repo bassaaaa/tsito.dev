@@ -4,6 +4,7 @@ import { markdownToHtml } from '@/lib/mdx'
 import TagList from '@/components/TagList'
 import Link from 'next/link'
 import CategoryChip from '@/components/CategoryChip'
+import { SITE_NAME } from '@/constant'
 
 type Props = {
   params: Promise<{ slug: string }>
@@ -19,7 +20,7 @@ export async function generateMetadata({ params }: Props) {
   const post = getPostBySlug(slug)
   if (!post) return {}
   return {
-    title: `${post.title} | my-tech-blog`,
+    title: `${post.title} | ${SITE_NAME}`,
     description: post.description,
   }
 }

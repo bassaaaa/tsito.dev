@@ -2,6 +2,7 @@ import { getAllPosts, getAllCategories } from '@/lib/posts'
 import PostCard from '@/components/PostCard'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { SITE_NAME } from '@/constant'
 
 type Props = {
   params: Promise<{ cat: string }>
@@ -15,7 +16,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props) {
   const { cat } = await params
   const category = decodeURIComponent(cat)
-  return { title: `${category} | my-tech-blog` }
+  return { title: `${category} | ${SITE_NAME}` }
 }
 
 export default async function CategoryPage({ params }: Props) {

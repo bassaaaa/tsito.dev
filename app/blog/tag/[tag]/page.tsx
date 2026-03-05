@@ -2,6 +2,7 @@ import { getAllPosts, getAllTags } from '@/lib/posts'
 import PostCard from '@/components/PostCard'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { SITE_NAME } from '@/constant'
 
 type Props = {
   params: Promise<{ tag: string }>
@@ -15,7 +16,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props) {
   const { tag } = await params
   const tagName = decodeURIComponent(tag)
-  return { title: `#${tagName} | my-tech-blog` }
+  return { title: `#${tagName} | ${SITE_NAME}` }
 }
 
 export default async function TagPage({ params }: Props) {

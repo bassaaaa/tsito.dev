@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
+import { SITE_NAME } from '../../constant'
 
 export const metadata: Metadata = {
-  title: 'About | my-tech-blog',
+  title: `About | ${SITE_NAME}`,
   description: 'このブログについて',
 }
 
@@ -13,15 +14,16 @@ export default function AboutPage() {
       <section className="mb-8">
         <h2 className="text-xl font-semibold mb-3">自己紹介</h2>
         <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-          42 Tokyoで学ぶプログラマーです。C言語から始まり、現在はWebフロントエンドやバックエンドを中心に学習しています。
-          技術的なことだけでなく、趣味の自作キーボードや日々の学びについても記録していきます。
+          1996年生まれ、広島県出身。都内でエンジニアとして働いています。<br />
+          ゲーム・ガジェットが好きです。<br />
+          42 Tokyoにて2026年2月に実施された入学試験「Piscine」に合格。同年4月入学。
         </p>
       </section>
 
       <section className="mb-8">
         <h2 className="text-xl font-semibold mb-3">スキルセット</h2>
         <div className="flex flex-wrap gap-2">
-          {['C', 'TypeScript', 'React', 'Next.js', 'Python', 'Git', 'Linux'].map((skill) => (
+          {['C', 'TypeScript', 'React', 'Next.js', 'PHP', 'SQL'].map((skill) => (
             <span
               key={skill}
               className="px-3 py-1 rounded-full text-sm bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300"
@@ -35,35 +37,9 @@ export default function AboutPage() {
       <section className="mb-8">
         <h2 className="text-xl font-semibold mb-3">このブログについて</h2>
         <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-          42 Tokyoでの学習記録、趣味の電子工作、プログラミングの学びをまとめていきます。
-          Next.js + TypeScript + Tailwind CSS で構築しています。
+          未来の自分のため、42 Tokyoでの学習記録をひっそり蓄積するのが主な目的です。<br />
+          プレイしたゲームや購入したガジェットなどの趣味の話も気が向けば。
         </p>
-      </section>
-
-      <section>
-        <h2 className="text-xl font-semibold mb-3">リンク</h2>
-        <ul className="flex flex-col gap-2">
-          <li>
-            <a
-              href="https://github.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-600 dark:text-blue-400 hover:underline"
-            >
-              GitHub
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-600 dark:text-blue-400 hover:underline"
-            >
-              X (Twitter)
-            </a>
-          </li>
-        </ul>
       </section>
     </div>
   )
