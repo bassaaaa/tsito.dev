@@ -2,6 +2,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { getAllPosts } from '@/lib/posts';
 import PostCard from '@/components/PostCard';
+import { SITE_NAME } from '@/constant';
+
+export async function generateMetadata() {
+	return {
+		title: `Home | ${SITE_NAME}`,
+	};
+}
+
 export default function Home() {
 	const posts = getAllPosts().slice(0, 5);
 

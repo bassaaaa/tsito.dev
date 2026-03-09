@@ -1,10 +1,18 @@
 import { getAllPosts, getAllCategories, getAllTags } from '@/lib/posts';
 import PostCard from '@/components/PostCard';
 import Link from 'next/link';
+import { SITE_NAME } from '@/constant';
 
 type Props = {
 	searchParams: Promise<{ category?: string; tag?: string }>;
 };
+
+export async function generateMetadata() {
+	return {
+		title: `Blog | ${SITE_NAME}`,
+		description: '記事一覧',
+	};
+}
 
 export default async function BlogPage({ searchParams }: Props) {
 	const params = await searchParams;
