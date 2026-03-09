@@ -8,17 +8,25 @@ type Props = {
 };
 
 export default function PostCard({ post }: Props) {
+	const titleEl = (
+		<h2 className="font-semibold text-lg mb-1 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+			{post.title}
+		</h2>
+	);
+
 	return (
 		<article className="py-8">
 			<div className="flex items-center gap-2 mb-2">
 				<time className="text-xs text-gray-500 dark:text-gray-400">{post.date}</time>
 				<CategoryChip category={post.category} />
 			</div>
-			<Link href={`/blog/${post.slug}`}>
-				<h2 className="font-semibold text-lg mb-1 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-					{post.title}
-				</h2>
-			</Link>
+			{post.externalUrl ? (
+				<a href={post.externalUrl} target="_blank" rel="noopener noreferrer">
+					{titleEl}
+				</a>
+			) : (
+				<Link href={`/blog/${post.slug}`}>{titleEl}</Link>
+			)}
 			<p className="text-sm text-gray-600 dark:text-gray-400 mb-3 line-clamp-2">
 				{post.description}
 			</p>
