@@ -40,7 +40,7 @@ export default async function TagPage({ params }: Props) {
 			<h1 className="text-2xl font-bold mb-6">
 				タグ: <span className="text-gray-700 dark:text-gray-300">#{tagName}</span>
 			</h1>
-			<div className="flex flex-col gap-4">
+			<div className="divide-y divide-gray-200 dark:divide-gray-800">
 				{posts.map((post) => (
 					<PostCard key={post.slug} post={post} />
 				))}

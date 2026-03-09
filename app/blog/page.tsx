@@ -64,7 +64,7 @@ export default async function BlogPage({ searchParams }: Props) {
 				))}
 			</div>
 
-			<div className="flex flex-col gap-4">
+			<div className="divide-y divide-gray-200 dark:divide-gray-800">
 				{filtered.length === 0 ? (
 					<p className="text-gray-500 dark:text-gray-400">記事が見つかりませんでした。</p>
 				) : (

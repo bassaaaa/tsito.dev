@@ -9,7 +9,7 @@ type Props = {
 
 export default function PostCard({ post }: Props) {
 	return (
-		<article className="border border-gray-200 dark:border-gray-800 rounded-lg p-5 hover:border-gray-400 dark:hover:border-gray-600 transition-colors">
+		<article className="py-8">
 			<div className="flex items-center gap-2 mb-2">
 				<CategoryChip category={post.category} />
 				<time className="text-xs text-gray-500 dark:text-gray-400">{post.date}</time>

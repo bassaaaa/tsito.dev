@@ -41,7 +41,7 @@ export default function Home() {
 
 			<section>
 				<h2 className="text-xl font-semibold mb-5">最新記事</h2>
-				<div className="flex flex-col gap-4">
+				<div className="divide-y divide-gray-200 dark:divide-gray-800">
 					{posts.map((post) => (
 						<PostCard key={post.slug} post={post} />
 					))}

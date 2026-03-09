@@ -40,7 +40,7 @@ export default async function CategoryPage({ params }: Props) {
 			<h1 className="text-2xl font-bold mb-6">
 				カテゴリ: <span className="text-blue-600 dark:text-blue-400">{category}</span>
 			</h1>
-			<div className="flex flex-col gap-4">
+			<div className="divide-y divide-gray-200 dark:divide-gray-800">
 				{posts.map((post) => (
 					<PostCard key={post.slug} post={post} />
 				))}
