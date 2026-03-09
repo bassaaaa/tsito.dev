@@ -10,37 +10,43 @@ export const metadata: Metadata = {
 export default function AboutPage() {
 	return (
 		<div className="max-w-3xl mx-auto px-4 py-10">
-			<h1 className="text-3xl font-bold mb-8">About</h1>
+			{/* Hero */}
+			<div className="flex flex-col items-center text-center mb-16">
+				<Image
+					src="/my_icon_bg_white.png"
+					alt="アイコン"
+					width={160}
+					height={160}
+					className="rounded-full border border-gray-200 dark:border-gray-700 mb-5"
+				/>
+				<h1 className="text-4xl font-bold tracking-wide mb-1">tsito</h1>
+			</div>
 
-			<section className="mb-10 flex flex-col sm:flex-row items-center sm:items-start gap-6">
-				<div className="shrink-0">
-					<Image
-						src="/my_icon_bg_white.png"
-						alt="アイコン"
-						width={120}
-						height={120}
-						className="rounded-full border border-gray-200 dark:border-gray-700"
-					/>
-				</div>
-				<div>
-					<h2 className="text-xl font-semibold mb-3">自己紹介</h2>
-					<p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-						1996年生まれ、広島県出身。都内でエンジニアとして働いています。
-						<br />
-						ゲーム・ガジェットが好きです。
-						<br />
-						42 Tokyoにて2026年2月に実施された入学試験「Piscine」に合格。同年4月入学。
-					</p>
-				</div>
+			{/* Bio */}
+			<section className="mb-12 pb-12 border-b border-gray-200 dark:border-gray-800">
+				<h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-4">
+					About
+				</h2>
+				<p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+					1996年生まれ、広島県出身。
+					<br />
+					都内でエンジニアとして働いています。
+					<br />
+					ゲーム・ガジェットが好きです。 <br />
+					42 Tokyoにて2026年2月に実施された入学試験「Piscine」に合格。同年4月入学。
+				</p>
 			</section>
 
-			<section className="mb-8">
-				<h2 className="text-xl font-semibold mb-3">スキルセット</h2>
+			{/* Skills */}
+			<section className="mb-12 pb-12 border-b border-gray-200 dark:border-gray-800">
+				<h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-4">
+					Skills
+				</h2>
 				<div className="flex flex-wrap gap-2">
 					{['C', 'TypeScript', 'React', 'Next.js', 'PHP', 'SQL'].map((skill) => (
 						<span
 							key={skill}
-							className="px-3 py-1 rounded-full text-sm bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300"
+							className="px-3 py-1 rounded-full text-sm border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400"
 						>
 							{skill}
 						</span>
@@ -48,11 +54,13 @@ export default function AboutPage() {
 				</div>
 			</section>
 
-			<section className="mb-8">
-				<h2 className="text-xl font-semibold mb-3">このブログについて</h2>
-				<p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+			{/* Blog */}
+			<section>
+				<h2 className="text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-4">
+					This Blog
+				</h2>
+				<p className="text-gray-700 dark:text-gray-300 leading-relaxed">
 					未来の自分のため、42 Tokyoでの学習記録をひっそり蓄積するのが主な目的です。
-					<br />
 					プレイしたゲームや購入したガジェットなどの趣味の話も気が向けば。
 				</p>
 			</section>
