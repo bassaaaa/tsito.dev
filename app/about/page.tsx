@@ -52,7 +52,7 @@ export default function AboutPage() {
 					<h2 className="text-xs font-semibold uppercase tracking-widest text-(--muted) mb-4">
 						This Blog
 					</h2>
-					<p className="text-(--foreground) leading-relaxed">
+					<p className="text-foreground leading-relaxed">
 						未来の自分のため、42 Tokyoでの学習記録をひっそり蓄積するのが主な目的です。
 						プレイしたゲームや購入したガジェットなどの趣味の話も気が向けば。
 					</p>
