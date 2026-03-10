@@ -14,7 +14,7 @@ export default function Home() {
 	const posts = getAllPosts().slice(0, 5);
 
 	return (
-		<div className="max-w-3xl mx-auto px-4 py-10">
+		<div className="max-w-3xl mx-auto px-4 sm:px-6 py-12">
 			<section className="mb-12 pb-12 border-b border-gray-200 dark:border-gray-700 flex flex-row items-center gap-6">
 				<div className="shrink-0">
 					<Image

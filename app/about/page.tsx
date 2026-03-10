@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
 	return (
-		<div className="max-w-3xl mx-auto px-4 py-10">
+		<div className="max-w-3xl mx-auto px-4 sm:px-6 py-12">
 			{/* Hero */}
 			<div className="flex flex-col items-center text-center mb-16">
 				<Image

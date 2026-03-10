@@ -33,19 +33,19 @@ export default async function BlogPostPage({ params }: Props) {
 	const html = await markdownToHtml(post.content);
 
 	return (
-		<div className="max-w-3xl mx-auto px-4 py-10">
+		<div className="max-w-3xl mx-auto px-4 sm:px-6 py-12">
 			<div className="mb-2">
 				<CategoryChip category={post.category} />
 			</div>
-			<h1 className="text-3xl font-bold mb-2">{post.title}</h1>
+			<h1 className="text-3xl font-bold mb-3">{post.title}</h1>
 			<div className="flex items-center gap-3 mb-4">
 				<time className="text-sm text-gray-500 dark:text-gray-400">{post.date}</time>
 			</div>
-			<div className="mb-6">
+			<div className="mb-8">
 				<TagList tags={post.tags} />
 			</div>
 			<article className="prose" dangerouslySetInnerHTML={{ __html: html }} />
-			<div className="mt-10 pt-6 border-t border-gray-200 dark:border-gray-800">
+			<div className="mt-12 pt-6 border-t border-gray-200 dark:border-gray-800">
 				<Link
 					href="/blog"
 					className="text-sm text-blue-600 dark:text-blue-400 hover:underline"

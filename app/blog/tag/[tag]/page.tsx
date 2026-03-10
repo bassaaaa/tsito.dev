@@ -28,7 +28,7 @@ export default async function TagPage({ params }: Props) {
 	if (posts.length === 0) notFound();
 
 	return (
-		<div className="max-w-3xl mx-auto px-4 py-10">
+		<div className="max-w-3xl mx-auto px-4 sm:px-6 py-12">
 			<div className="mb-6">
 				<Link
 					href="/blog"

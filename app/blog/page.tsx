@@ -27,7 +27,7 @@ export default async function BlogPage({ searchParams }: Props) {
 	});
 
 	return (
-		<div className="max-w-3xl mx-auto px-4 py-10">
+		<div className="max-w-3xl mx-auto px-4 sm:px-6 py-12">
 			<h1 className="text-2xl font-bold mb-6">記事一覧</h1>
 
 			<div className="flex flex-wrap gap-2 mb-4">
@@ -56,7 +56,7 @@ export default async function BlogPage({ searchParams }: Props) {
 				))}
 			</div>
 
-			<div className="flex flex-wrap gap-1.5 mb-6">
+			<div className="flex flex-wrap gap-1.5 mb-8">
 				{tags.map((tag) => (
 					<Link
 						key={tag}
