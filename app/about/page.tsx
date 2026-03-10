@@ -28,7 +28,10 @@ export default function AboutPage() {
 					</h2>
 					<p className="text-foreground leading-relaxed">
 						1996年生まれ、広島県出身。 都内でエンジニアとして働いています。
-						ゲーム・ガジェットが好き。 42 Tokyo 2026-02 Piscine → 2026-04 KickOff。
+						<br />
+						ゲーム・ガジェットが好き。
+						<br />
+						42 Tokyo 2026-02 Piscine → 2026-04 KickOff
 					</p>
 				</section>
 
