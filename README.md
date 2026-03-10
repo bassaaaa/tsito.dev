@@ -7,7 +7,8 @@
 - **Next.js 16** (App Router) + TypeScript
 - **Tailwind CSS v4**
 - **gray-matter** — Markdown frontmatter パース
-- **unified / remark / rehype / rehype-pretty-code** — Markdown → HTML 変換・シンタックスハイライト
+- **unified / remark / rehype / rehype-pretty-code + Shiki** — Markdown → HTML 変換・シンタックスハイライト
+- **rehype-slug** — 見出しへの id 付与（目次リンク用）
 - **next-themes** — ダークモード
 
 ## はじめ方
@@ -23,7 +24,7 @@ npm run dev
 
 `content/<カテゴリ>/<slug>.md` にファイルを作成し、frontmatter を記述する。
 
-```md
+```yaml
 ---
 title: '記事タイトル'
 date: '2026-01-01'
@@ -38,7 +39,7 @@ published: true
 
 外部サイト（note など）の記事を載せる場合は `externalUrl` と `externalLabel` を追加する。
 
-```md
+```yaml
 ---
 title: '記事タイトル'
 date: '2026-01-01'
@@ -51,13 +52,20 @@ externalLabel: 'noteで読む'
 ---
 ```
 
+`published: false` にすると下書き扱いになり一覧に表示されない。
+
 ## Project Structure
 
-```bash
+```
 app/           # ページ & レイアウト
-components/    # Header, Footer, PostCard, TagList, ThemeToggle, CategoryChip
-lib/           # posts.ts, mdx.ts
-types/         # post.ts
+components/    # Header, Footer, PostCard, TagList, ThemeToggle, CategoryChip,
+               # TableOfContents, Breadcrumb
+lib/           # posts.ts（記事取得）, mdx.ts（Markdown 変換・見出し抽出）
+types/         # post.ts（PostMeta, Post）
 content/       # .md ファイル（カテゴリごとのサブフォルダ）
 public/        # 静的ファイル
 ```
+
+## デプロイ
+
+Vercel にホスティング。`main` ブランチへの push で自動デプロイ。カスタムドメイン `tsito.me` を設定済み。
