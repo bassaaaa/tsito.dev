@@ -8,7 +8,7 @@ export async function generateMetadata() {
 	return { title: `Home | ${SITE_NAME}` };
 }
 
-export default function Home() {
+export default async function Home() {
 	const posts = getAllPosts().slice(0, 5);
 
 	return (
