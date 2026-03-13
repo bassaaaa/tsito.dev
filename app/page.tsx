@@ -17,7 +17,7 @@ export default function Home() {
 			<section className="mb-12 pb-12 border-b border-(--border) flex flex-row items-center gap-6">
 				<div className="shrink-0">
 					<Image
-						src="/my_icon_bg_white.png"
+						src="/my_icon.png"
 						alt="アイコン"
 						width={80}
 						height={80}

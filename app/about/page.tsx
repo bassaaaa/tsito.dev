@@ -12,7 +12,7 @@ export default function AboutPage() {
 		<div className="max-w-3xl mx-auto px-4 sm:px-6 py-12">
 			<div className="flex flex-col items-center text-center mb-14">
 				<Image
-					src="/my_icon_bg_white.png"
+					src="/my_icon.png"
 					alt="アイコン"
 					width={96}
 					height={96}
