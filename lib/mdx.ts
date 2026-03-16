@@ -207,9 +207,21 @@ function buildInternalCardNode(post: { slug: string; title: string; description:
 			children: [
 				{
 					type: 'element',
+					tagName: 'img',
+					properties: {
+						className: ['ogp-card-favicon'],
+						src: '/my_icon.png',
+						alt: '',
+						width: '14',
+						height: '14',
+					},
+					children: [],
+				},
+				{
+					type: 'element',
 					tagName: 'span',
 					properties: {},
-					children: [{ type: 'text', value: `${SITE_NAME} · ${post.date}` }],
+					children: [{ type: 'text', value: SITE_NAME }],
 				},
 			],
 		},
