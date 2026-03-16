@@ -5,6 +5,8 @@ import rehypePrettyCode from 'rehype-pretty-code';
 import rehypeSlug from 'rehype-slug';
 import rehypeStringify from 'rehype-stringify';
 import { fetchOgp, type OgpData } from './ogp';
+import { getPostBySlug } from './posts';
+import { SITE_NAME } from '@/constant';
 
 export type Heading = { id: string; text: string; level: number };
 
@@ -31,9 +33,19 @@ export async function markdownToHtml(
 						child.children.length === 1 &&
 						child.children[0].type === 'text'
 					) {
-						const match = (child.children[0].value as string).match(/^::embed\[(.+)\]$/);
-						if (match) {
-							const url = match[1];
+						const text = child.children[0].value as string;
+						const embedMatch = text.match(/^::embed\[(.+)\]$/);
+						const internalMatch = text.match(/^::embed-internal\[(.+)\]$/);
+						if (internalMatch) {
+							const slug = internalMatch[1];
+							const index = i;
+							const parent = node;
+							const post = getPostBySlug(slug);
+							if (post) {
+								parent.children[index] = buildInternalCardNode(post);
+							}
+						} else if (embedMatch) {
+							const url = embedMatch[1];
 							const index = i;
 							const parent = node;
 							tasks.push(async () => {
@@ -166,6 +178,74 @@ function buildOgpCardNode(ogp: OgpData) {
 				children: contentChildren,
 			},
 			...imageNode,
+		],
+	};
+}
+
+function buildInternalCardNode(post: { slug: string; title: string; description: string; date: string }) {
+	const contentChildren = [
+		{
+			type: 'element',
+			tagName: 'p',
+			properties: { className: ['ogp-card-title'] },
+			children: [{ type: 'text', value: post.title }],
+		},
+		...(post.description
+			? [
+					{
+						type: 'element',
+						tagName: 'p',
+						properties: { className: ['ogp-card-description'] },
+						children: [{ type: 'text', value: post.description }],
+					},
+				]
+			: []),
+		{
+			type: 'element',
+			tagName: 'div',
+			properties: { className: ['ogp-card-site'] },
+			children: [
+				{
+					type: 'element',
+					tagName: 'span',
+					properties: {},
+					children: [{ type: 'text', value: `${SITE_NAME} · ${post.date}` }],
+				},
+			],
+		},
+	];
+
+	return {
+		type: 'element',
+		tagName: 'a',
+		properties: {
+			href: `/blog/${post.slug}`,
+			className: ['ogp-card'],
+		},
+		children: [
+			{
+				type: 'element',
+				tagName: 'div',
+				properties: { className: ['ogp-card-content'] },
+				children: contentChildren,
+			},
+			{
+				type: 'element',
+				tagName: 'div',
+				properties: { className: ['ogp-card-thumbnail', 'ogp-card-thumbnail-internal'] },
+				children: [
+					{
+						type: 'element',
+						tagName: 'img',
+						properties: {
+							className: ['ogp-card-image'],
+							src: `/blog/${post.slug}/opengraph-image`,
+							alt: post.title,
+						},
+						children: [],
+					},
+				],
+			},
 		],
 	};
 }
