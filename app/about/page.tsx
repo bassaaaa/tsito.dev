@@ -7,6 +7,16 @@ export const metadata: Metadata = {
     description: 'このブログについて',
 };
 
+const skills = ['C', 'TypeScript', 'React', 'Next.js', 'PHP', 'SQL'];
+
+const setup = [
+    { label: 'Machine', value: 'MacBook Air / Apple M5 / 16GB' },
+    { label: 'Editor', value: 'Neovim' },
+    { label: 'Shell', value: 'zsh' },
+    { label: 'Keyboard', value: 'MX Keys Mini for Mac' },
+    { label: 'Mouse', value: 'Ergo M575SPD' },
+];
+
 export default function AboutPage() {
     return (
         <div className="max-w-3xl mx-auto px-4 sm:px-6 py-12">
@@ -42,7 +52,7 @@ export default function AboutPage() {
                         Skills
                     </h2>
                     <div className="flex flex-wrap gap-2">
-                        {['C', 'TypeScript', 'React', 'Next.js', 'PHP', 'SQL'].map((skill) => (
+                        {skills.map((skill) => (
                             <span
                                 key={skill}
                                 className="px-3 py-1 text-sm rounded-md border border-(--border) bg-(--surface) text-foreground"
@@ -51,6 +61,20 @@ export default function AboutPage() {
                             </span>
                         ))}
                     </div>
+                </section>
+
+                <section className="border-t border-(--border) pt-10">
+                    <h2 className="text-xs font-semibold uppercase tracking-widest text-(--accent) mb-4">
+                        Setup
+                    </h2>
+                    <dl className="space-y-3">
+                        {setup.map(({ label, value }) => (
+                            <div key={label} className="flex gap-4">
+                                <dt className="w-24 shrink-0 text-sm text-(--muted)">{label}</dt>
+                                <dd className="text-sm text-foreground">{value}</dd>
+                            </div>
+                        ))}
+                    </dl>
                 </section>
 
                 <section className="border-t border-(--border) pt-10">
