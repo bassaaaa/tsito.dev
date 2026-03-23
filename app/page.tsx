@@ -22,6 +22,7 @@ export default async function Home() {
 						width={80}
 						height={80}
 						className="rounded-full ring-2 ring-(--accent) ring-offset-2 ring-offset-background"
+						priority
 					/>
 				</div>
 				<div className="flex flex-col gap-1.5">
