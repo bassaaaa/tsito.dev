@@ -15,6 +15,7 @@ export async function markdownToHtml(
 	content: string,
 ): Promise<{ html: string; headings: Heading[] }> {
 	const headings: Heading[] = [];
+	const normalizedContent = normalizeQuoteFences(content);
 
 	const file = await unified()
 		.use(remarkParse)
@@ -78,9 +79,31 @@ export async function markdownToHtml(
 			visit(tree);
 		})
 		.use(rehypeStringify, { allowDangerousHtml: true })
-		.process(content);
+		.process(normalizedContent);
 
 	return { html: file.toString(), headings };
+}
+
+function normalizeQuoteFences(content: string): string {
+	const lines = content.split('\n');
+	const normalized: string[] = [];
+	let inQuote = false;
+	let inCodeFence = false;
+
+	for (const line of lines) {
+		if (/^\s*(```|~~~)/.test(line)) {
+			inCodeFence = !inCodeFence;
+			normalized.push(line);
+			continue;
+		}
+		if (!inCodeFence && line.trim() === '>>>') {
+			inQuote = !inQuote;
+			continue;
+		}
+		normalized.push(inQuote ? `> ${line}` : line);
+	}
+
+	return normalized.join('\n');
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

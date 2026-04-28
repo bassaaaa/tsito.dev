@@ -131,11 +131,17 @@ body {
 }
 
 .prose blockquote {
-  border-left: 3px solid var(--accent);
-  padding-left: 1em;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
   color: var(--muted);
-  margin: 1.5em 0;
-  font-style: italic;
+  margin: 1.75em 0;
+}
+
+.prose blockquote p:last-child {
+  margin-bottom: 0;
 }
 
 .prose strong { font-weight: 700; }
